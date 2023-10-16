@@ -1,0 +1,14 @@
+<html>
+	<head><title>Main page</title></head>
+	<body>
+		<table border=1>
+		{% for row in rows %}
+			<tr>
+			{% for cell in row %}
+				<td>{{ cell }}</td>
+			{% endfor %}
+			</tr>
+		{% endfor %}
+		</table>
+	</body>
+</html>
