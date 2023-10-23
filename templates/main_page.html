@@ -2,13 +2,13 @@
 	<head><title>Main page</title></head>
 	<body>
 		<table border=1>
-		{% for row in rows %}
+		{%- for row in rows %}
 			<tr>
-			{% for cell in row %}
+			{%- for cell in row %}
 				<td>{{ cell }}</td>
-			{% endfor %}
+			{%- endfor %}
 			</tr>
-		{% endfor %}
+		{% endfor -%}
 		</table>
 	</body>
 </html>
