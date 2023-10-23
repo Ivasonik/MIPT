@@ -12,11 +12,17 @@ def db_query(query_text):
 	with sqlite3.connect(DB_PATH) as conn:
 		cur = conn.cursor()
 		cur.execute(query_text)
-		return cur.fetchall()
+		data=cur.fetchall()
+		#columns = []
+		#for descr in cur.description:
+		#	columns.append(descr[0])
+		#or instead of upper 3 strings:
+		columns = [descr[0] for descr in cur.description]
+		return columns, data
 @app.route('/')
 def main_page():
-	data = db_query('SELECT * FROM t1')
-	return render_template('main_page.html', rows=data)
+	columns, data = db_query('SELECT * FROM t1')
+	return render_template('main_page.html', rows=data, column_names = columns)
 
 if __name__=='__main__':
 	app.run('0.0.0.0', debug=True)

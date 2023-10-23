@@ -2,6 +2,11 @@
 	<head><title>Main page</title></head>
 	<body>
 		<table border=1>
+			<tr>
+				{%- for col_name in column_names %}
+				<td><b>{{col_name}}</b></td>
+				{% endfor%}
+			</tr>
 		{%- for row in rows %}
 			<tr>
 			{%- for cell in row %}
